@@ -1,0 +1,63 @@
+{
+  "name": "genpark-agentic-cross-border-customs-tariff-calculator-skill",
+  "version": "1.0.0",
+  "description": "Autonomous Cross-Border E-Commerce Customs Tariff & Landed Cost Calculator. Classifies Harmonized System (HS) codes, evaluates de minimis duty exemption thresholds across global jurisdictions (US, EU, UK, JP, CN), computes ad valorem duties and import VAT/GST under DDP/DAP Incoterms, and generates customs manifests.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "calculate_customs_landed_cost",
+      "description": "Classify HS codes, check de minimis thresholds, calculate import duties and VAT/GST, and generate cross-border customs declaration manifests.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "classify_hs_code",
+              "calculate_landed_cost",
+              "generate_customs_manifest"
+            ],
+            "description": "Customs tariff calculation action."
+          },
+          "product_description": {
+            "type": "string",
+            "description": "Description of physical good."
+          },
+          "declared_value_usd": {
+            "type": "number",
+            "description": "FOB declared merchandise value in USD."
+          },
+          "shipping_insurance_usd": {
+            "type": "number",
+            "description": "Freight and insurance cost in USD."
+          },
+          "destination_country": {
+            "type": "string",
+            "enum": [
+              "US",
+              "EU",
+              "UK",
+              "JP",
+              "CN",
+              "CA"
+            ],
+            "description": "Import destination jurisdiction."
+          },
+          "incoterm": {
+            "type": "string",
+            "enum": [
+              "DDP",
+              "DAP",
+              "FOB"
+            ],
+            "description": "International commercial terms."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
